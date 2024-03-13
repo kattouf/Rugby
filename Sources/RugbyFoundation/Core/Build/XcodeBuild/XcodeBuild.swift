@@ -93,7 +93,7 @@ final class XcodeBuild {
         options: XcodeBuildOptions,
         paths: XcodeBuildPaths
     ) async throws {
-        let command = "NSUnbufferedIO=YES xcodebuild"
+        let command = "set -o pipefail && NSUnbufferedIO=YES xcodebuild"
         var arguments = arguments
         arguments.append(contentsOf: [
             "-project \(paths.project.shellFriendly)",
